@@ -1,0 +1,176 @@
+<template id="video-control">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <style>
+        html{
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .button_20{
+            line-height: 20vmin;
+        }
+        .button_60{
+            line-height: 60vmin;
+        }
+        div{
+            color: white;
+            font-size: 16vmin;
+            text-align: center;
+            vertical-align: middle;
+            opacity: 0;
+            filter: drop-shadow(0px 0px 4px #000);
+        }
+        div:hover{
+            opacity: 0.5;
+        }
+        #close{
+            height: 20vh;
+            width: 20vw;
+            background: rgb(250, 53, 129);
+            position: absolute;
+            top: 0;
+            right: 0;
+            filter: none;
+        }
+        #draggable{
+            height: 20vh;
+            width: 60vw;
+            position: absolute;
+            top: 0;
+            left: 20vw;
+            -webkit-app-region: drag;
+        }
+        #pin{
+            height: 20vh;
+            width: 20vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #back{
+            height: 60vh;
+            width: 20vw;
+            position: absolute;
+            top: 20vh;
+            left: 0;
+        }
+        #next{
+            height: 60vh;
+            width: 20vw;
+            position: absolute;
+            top: 20vh;
+            right: 0;
+        }
+        #play{
+            height: 60vh;
+            width: 60vw;
+            position: absolute;
+            top: 20vh;
+            left: 20vw;
+        }
+        #seek{
+            height: var(--bar-div);
+            width: 80vw;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+        }
+        #volume{
+            height: var(--bar-div);
+            width: 20vw;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            text-align: left;
+        }
+        .volume_icon{
+            font-size: calc(var(--bar-div) * 0.8);
+            vertical-align: middle;
+            line-height: var(--bar-div);
+            margin-left: 2%;
+        }
+        .blank_bar {
+            -webkit-appearance: none;
+            background: rgb(250, 53, 129);
+            border: 0;
+            height: var(--bar-height);
+            max-width: 100%;
+            width: 0px;
+            display: block;
+            position: absolute;
+            bottom: var(--bar_position_bottom);
+            margin: 0 1%;
+        }
+
+        input[type="range"].custom {
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(88, 88, 88, 0.7);
+            height: var(--bar-height);
+            width: 98%;
+            position: absolute;
+            bottom: var(--bar_position_bottom);
+            left: 0;
+            margin: 0 1%;
+        }
+        input[type="range"].custom:focus {
+            outline: none; 
+        }
+        input[type="range"].custom::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgb(250, 53, 129);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            margin-bottom: 2px; 
+        }
+        #volume_bar, #volume_bar_blank{
+            width: calc(100% - 20px - 2%);
+            position: absolute;
+            bottom: var(--bar_position_bottom);
+            left: 0;
+            margin-left: 20px;
+        }
+    </style>
+
+
+    <div id="close">
+        <i class="fa fa-times button_20" aria-hidden="true"></i>
+    </div>
+    <div id="draggable">
+        <i class="fa fa-arrows button_20" aria-hidden="true"></i>
+    </div>
+    <div id="pin">
+        <i class="fa fa-thumb-tack button_20" aria-hidden="true"></i>
+    </div>
+    <div id="back">
+        <i class="fa fa-step-backward button_60" aria-hidden="true"></i>
+    </div>
+    <div id="next">
+        <i class="fa fa-step-forward button_60" aria-hidden="true"></i>
+    </div>
+    <div id="play">
+        <i id="play_icon" class="fa fa-pause button_60" aria-hidden="true"></i>
+    </div>
+    
+    <div id="seek">
+        <input type="range" name="bar" id="seek_bar" class="custom" step="0.1" min="0" max="100" value="0"/>
+        <span id="seek_bar_blank" class="blank_bar"></span>
+    </div>
+    <div id="volume">
+        <input type="range" name="bar" id="volume_bar" class="custom" step="1" min="0" max="100" value="100"/>
+        <span id="volume_bar_blank" class="blank_bar"></span>
+        <i id="volume_icon" class="fa fa-volume-down volume_icon" aria-hidden="true"></i>
+    </div>
+
+    <div>
+    </div>
+    </template>
+<script src="template.js"></script>
+        

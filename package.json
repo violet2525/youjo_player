@@ -1,0 +1,24 @@
+{
+  "name": "youjo_player",
+  "version": "0.1.0",
+  "description": "ようじょせんきぷれいやー",
+  "main": "src/main.js",
+  "dependencies": {
+    "electron": "^1.7.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "./node_modules/.bin/electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/violet2525/youjo_player.git"
+  },
+  "author": "violet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/violet2525/youjo_player/issues"
+  },
+  "homepage": "https://github.com/violet2525/youjo_player#readme"
+}
